@@ -201,3 +201,4 @@ function ft_hook_sidebar() {}
  * @return Nothing.
  */
 function ft_hook_upload($dir, $file) {}
+

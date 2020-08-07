@@ -1159,6 +1159,8 @@ function ft_make_body() {
 function ft_make_footer() {
 	return "<br><hr><div id=\"footer\"><p><a href=\"https://github.com/aumaza/filethingie/\" target=\"_BLANK\">FM is a fork of File Thingie &bull; PHP File Manager</a> &copy; <!-- Copyright --> 2003-".date("Y")." by Andreas Haugstrup Pedersen</a>.</p>
 		<p><a href=\"doc/documentation.pdf\" target=\"_BLANK\">".t('Online documentation')."</a></p></div>";
+		
+
 }
 
 /**
@@ -1845,6 +1847,37 @@ if (headers_sent()) {
   }
   $str .= ft_make_footer();
 }
+
+function head(){
+
+    echo '<div> 
+	<h1>FM - Administrador de Archivos</h1>
+      </div>';
+
+}
+
+function theme(){
+  
+  if($_SESSION['ft_user_'.MUTEX]){
+ echo '<div>
+  <h3>Cambiar Tema</h3>
+ <form action="" method="POST">
+  <input type="radio" id="blue" name="theme" value="'.$_REQUEST['ft.css'].'">
+  <label for="male">Blue</label>
+  <input type="radio" id="green" name="theme" value="'.$_REQUEST['ftgreen.css'].'">
+  <label for="female">Green</label>
+  <input type="radio" id="grey" name="theme" value="'.$_REQUEST['ftgrey.css'].'">
+  <label for="other">Grey</label><br><br>
+  <button type="submit">Cambiar</button>
+</form><br>
+</div>';
+}
+
+}
+
+
+
+
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -1853,8 +1886,10 @@ if (headers_sent()) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>FM - WEB <?php echo VERSION;?></title>
 	<link rel="home" href="<?php echo ft_get_self();?>" title="<?php echo t('Go to home folder');?>" />
+	<?php head();?>
 	
-
+	
+	
 <?php ft_make_scripts();?>
 
   <script type="text/javascript" charset="utf-8">
@@ -1911,7 +1946,7 @@ if (headers_sent()) {
 	</script>
 	<style type="text/css">
 	  @import "css/ft.css";
-	  
+		  
     <?php echo implode("\r\n", ft_invoke_hook('add_css'));?>
 	</style>
 </head>

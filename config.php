@@ -35,6 +35,7 @@ function ft_settings_external_load() {
   $ft["settings"]["PLUGINDIR"]         = 'plugins'; // Set to the path to your plugin folder. Do NOT include a trailing slash!
 
   # Plugin settings #
+  
   $ft["plugins"]["zip"] = TRUE; 
   $ft["plugins"]["search"] = TRUE; 
   $ft["plugins"]["edit"] = array(
@@ -63,9 +64,7 @@ function ft_settings_external_load() {
   $ft['users']['aumaza'] = array(
     'password' => 'linux1303',
     'group' => 'develop'
-   
-    
-  );
+   );
   
 
   # User groups for additional users -  - See guide at http://www.solitude.dk/filethingie/documentation/users #
